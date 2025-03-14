@@ -1,12 +1,12 @@
 <?php
-// Router logic
+
 $requestUri = $_SERVER['REQUEST_URI'];
-$basePath = '/'; // Adjust this based on your server configuration
+$basePath = '/';
 $route = str_replace($basePath, '', $requestUri);
 $parts = explode('/', $route);
-$page = $parts[0]; // The first part of the route typically represents the page
+$page = $parts[0];
 
-// Route to the corresponding PHP file or action
+
 switch ($page) {
     case '':
     case 'home':
@@ -19,7 +19,6 @@ switch ($page) {
         require './handlers/contact.php';
         break;
     default:
-        // Handle 404 page not found
         http_response_code(404);
         echo 'Page Not Found';
         break;
